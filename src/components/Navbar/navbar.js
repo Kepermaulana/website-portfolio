@@ -6,17 +6,20 @@ import contactImg from '../../assets/contact.png';
 
 const Navbar = () => {
     return ( 
-    <nav className = 'navbar' >
+    <nav className ='navbar'>
         <img src = { logo } alt = 'Logo' className = 'logo' / >
         <div className='desktopMenu'>
-            <Link className='desktopMenuListItem'>Home</Link>
-            <Link className='desktopMenuListItem'>About</Link>
-            <Link className='desktopMenuListItem'>Clients</Link>
-            <Link className='desktopMenuListItem'>Portfolio</Link>
+            <Link activeClass='active' to='intro' spy={true} smooth={true} offset={-100} className='desktopMenuListItem'>Home</Link>
+            <Link activeClass='active' to='skills' spy={true} smooth={true} offset={-50} className='desktopMenuListItem'>About</Link>
+            <Link activeClass='active' to='works' spy={true} smooth={true} offset={-50} className='desktopMenuListItem'>Portfolio</Link>
+            <Link activeClass='active' to='clients' spy={true} smooth={true} offset={-50} className='desktopMenuListItem'>Clients</Link>
         </div>
-        <button className='desktopMenuBtn'>
+        <button className='desktopMenuBtn' onClick={()=> {
+            document.getElementById('contact').scrollIntoView({behavior: 'smooth'});
+        }}>
             <img src={ contactImg } alt='' className='desktopMenuImg' /> Contact Me </button>
      </nav>
+
     )
 }
 
